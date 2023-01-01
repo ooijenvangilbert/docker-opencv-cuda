@@ -1,0 +1,17 @@
+How to start Docker Container with mounted volume, GPU support
+and X11 forwarding 
+---------------------------------------------------------------
+# Delete Container afterwards
+
+docker run \
+    -it \
+    -e DISPLAY=$DISPLAY \
+    -e "TERM=xterm-256color" \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v /home/owel/Projects/LearnOpenCV:/home/Projects/LearnOpenCV \
+    --workdir /home/Projects/LearnOpenCV \
+    --gpus all \
+    --rm \
+    nvidia/cuda:opencv4.7
+
+    
