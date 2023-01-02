@@ -1,0 +1,21 @@
+# just type 'docker compose run opencv' 
+# to launch this docker container 
+services: 
+  opencv:
+    image: nvidia/cuda:opencv4.7
+    stdin_open: true 
+    tty: true        
+    volumes: 
+      - /tmp/.X11-unix:/tmp/.X11-unix 
+      - /home/owel/Projects/LearnOpenCV:/home/Projects/LearnOpenCV 
+    working_dir: /home/Projects/LearnOpenCV 
+    environment:
+      - DISPLAY:$DISPLAY 
+      - TERM:xterm-256color
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
