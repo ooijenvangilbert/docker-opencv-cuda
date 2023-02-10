@@ -8,8 +8,8 @@ docker run \
     -e DISPLAY=$DISPLAY \
     -e "TERM=xterm-256color" \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
-    -v /home/owel/Projects/LearnOpenCV:/home/Projects/LearnOpenCV \
-    --workdir /home/Projects/LearnOpenCV \
+    -v /home/Desktop/pypro:/home/Desktop/pypro \
+    --workdir /home/Desktop/pypro \
     --gpus all \
     --rm \
     nvidia/cuda:opencv4.7
